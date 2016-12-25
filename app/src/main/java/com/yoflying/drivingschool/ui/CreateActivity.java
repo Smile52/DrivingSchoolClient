@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,41 +24,34 @@ public class CreateActivity extends BaseActivity {
     private RadioButton mManRbtn,mWomanRbtn,mTeacherRbtn,mStudentRbtn;
     private int mUserType;//创建的用户类别
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         setContentView(R.layout.activity_create);
-        findViewById();
-        initViews();
 
-    }
-
-    @Override
-    protected void findViewById() {
-        mToolBar=findView(R.id.create_layout_toolbar);
         mTypeGroup=findView(R.id.create_type_group);
         mSexGroup=findView(R.id.create_sex_group);
         mManRbtn=findView(R.id.create_sex_man);
         mWomanRbtn=findView(R.id.create_sex_woman);
         mTeacherRbtn=findView(R.id.create_type_teacher);
         mStudentRbtn=findView(R.id.create_type_student);
-
+        addToolbar();
     }
 
-    private void initViews() {
+    @Override
+    protected void initData() {
         mIntent=getIntent();
         mUserType=mIntent.getExtras().getInt(Config.CREATE_USER_TYPE);
+        Log.e("dandy","注册用户类型 "+mUserType);
         if (mUserType==Config.USER_TYPE_STUDENT){
-            mToolBar.setTitle("创建学员");
-            mStudentRbtn.setEnabled(true);
+
+            mStudentRbtn.setChecked(true);
         }else {
-            mToolBar.setTitle("创建教练");
-            mTeacherRbtn.setEnabled(true);
+
+            mTeacherRbtn.setChecked(true);
         }
 
-
-        mToolBar.setTitle("预约车系统");
-        mToolBar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
+     /*   mToolBar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolBar);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,9 +61,9 @@ public class CreateActivity extends BaseActivity {
             public void onClick(View v) {
                 finish();
             }
-        });
-
+        });*/
     }
+
 
     @Override
     protected Context getActivityContext() {

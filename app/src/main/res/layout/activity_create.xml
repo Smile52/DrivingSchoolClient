@@ -10,14 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/create_layout_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:theme="@style/toolbar_white_theme"/>
+    <include layout="@layout/toolbar_layout"></include>
         <TableLayout
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

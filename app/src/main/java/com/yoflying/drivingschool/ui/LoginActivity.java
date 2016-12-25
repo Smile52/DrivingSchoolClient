@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -37,16 +38,11 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
     private int mUserType= Config.USER_TYPE_ADMIN;
     private LinearLayout mLoginLayout;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         setContentView(R.layout.activity_login);
-        findViewById();
-    }
 
-
-    @Override
-    protected void findViewById() {
         mLoginLayout=findView(R.id.longin_layout);
         mUserName=findView(R.id.login_username);
         mPassword=findView(R.id.login_password);
@@ -55,14 +51,14 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
         mTeacher=findView(R.id.login_teacher);
         mStudent=findView(R.id.login_student);
         mSingIn=findView(R.id.login_sing_in);
-        mSingIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mUserLoginPresenter.login();
-                Log.e("dandy","点击了");
-            }
-        });
-        mAdmin.setChecked(true);
+
+        addToolbar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+
+    @Override
+    protected void initData() {
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -84,6 +80,15 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
             }
         });
 
+        mSingIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mUserLoginPresenter.login();
+                Log.e("dandy","点击了");
+            }
+        });
+
+        mAdmin.setChecked(true);
     }
 
     @Override

@@ -10,13 +10,17 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.yoflying.drivingschool.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +33,22 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     protected Context mContext;
     private static final int REQUEST_CODE_PERMISSON = 2020; //权限请求码
     private boolean isNeedCheckPermission = true; //判断是否需要检测，防止无限弹框申请权限
+    private Toolbar mToolbar;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         mContext=getActivityContext();
-        findViewById();
+        initView();
+        initData();
     }
+
+    protected void initData() {
+
+    }
+
+
+    protected abstract void initView();
 
     @Override
     protected void onResume() {
@@ -76,7 +89,21 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
         return needRequestPermissonList;
     }
 
-    protected abstract void findViewById();
+
+
+    /**
+     *
+     */
+    public void addToolbar(){
+         mToolbar = findView(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void toolbarAddReturn(){
+
+    }
+
 
     /**
      * Activity.this

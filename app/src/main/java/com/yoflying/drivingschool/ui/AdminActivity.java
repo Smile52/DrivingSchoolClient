@@ -25,23 +25,16 @@ public class AdminActivity extends BaseActivity  implements NavigationView.OnNav
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private ActionBarDrawerToggle mDrawerToggle;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+
+
+    public void initView() {
         setContentView(R.layout.activity_admin);
-        findViewById();
-        initView();
-    }
 
-
-    @Override
-    protected void findViewById() {
         mToolbar=findView(R.id.admin_layout_toolbar);
         mDrawerLayout=findView(R.id.content_layout);
         mNavigationView=findView(R.id.nav_view);
-    }
 
-    private void initView() {
         mToolbar.setTitle("Driver");
         mToolbar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolbar);
