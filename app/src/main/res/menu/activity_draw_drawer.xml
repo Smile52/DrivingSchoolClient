@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_creat_teacher"
+
+            android:title="创建教练" />
+        <item
+            android:id="@+id/nav_creat_student"
+
+            android:title="创建学员" />
+        <item
+            android:id="@+id/nav_binding"
+
+            android:title="学员绑定教练" />
+        <item
+            android:id="@+id/nav_add_vacate"
+
+            android:title="添加教练请假" />
+    </group>
+
+    <item android:title="更多">
+        <menu>
+            <item
+                android:id="@+id/nav_seeting"
+
+                android:title="设置" />
+            <item
+                android:id="@+id/nav_exit_user"
+
+                android:title="退出当前账号" />
+        </menu>
+    </item>
+
+</menu>
