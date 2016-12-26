@@ -30,11 +30,9 @@ public class AdminActivity extends BaseActivity  implements NavigationView.OnNav
 
     public void initView() {
         setContentView(R.layout.activity_admin);
-
         mToolbar=findView(R.id.admin_layout_toolbar);
         mDrawerLayout=findView(R.id.content_layout);
         mNavigationView=findView(R.id.nav_view);
-
         mToolbar.setTitle("Driver");
         mToolbar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolbar);
@@ -58,10 +56,6 @@ public class AdminActivity extends BaseActivity  implements NavigationView.OnNav
     }
 
 
-    @Override
-    protected Context getActivityContext() {
-        return null;
-    }
 
     @Override
     protected String[] getNeedPermissions() {

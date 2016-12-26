@@ -149,9 +149,11 @@
                 android:text="科目"/>
             <Spinner
                 android:id="@+id/create_course"
-                android:layout_width="50dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"></Spinner>
+                android:layout_marginLeft="70dp"
+                android:entries="@array/course_array"
+               ></Spinner>
         </LinearLayout>
         <Button
             android:id="@+id/create_submit"

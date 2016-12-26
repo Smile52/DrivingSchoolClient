@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="course_array">
+        <item>科目一</item>
+        <item>科目二</item>
+        <item>科目三</item>
+        <item>科目四</item>
+    </string-array>
+</resources>

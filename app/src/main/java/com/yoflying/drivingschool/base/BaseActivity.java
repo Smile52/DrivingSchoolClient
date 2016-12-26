@@ -38,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext=getActivityContext();
+
         initView();
         initData();
     }
@@ -100,15 +100,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void toolbarAddReturn(){
-
-    }
 
 
-    /**
-     * Activity.this
-     */
-    protected abstract Context getActivityContext();
 
     /**
      * 弹出Toast

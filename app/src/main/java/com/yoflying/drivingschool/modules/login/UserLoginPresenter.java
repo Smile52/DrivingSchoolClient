@@ -1,14 +1,16 @@
-package com.yoflying.drivingschool.presenter;
+package com.yoflying.drivingschool.modules.login;
 
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.bean.HttpsResult;
 import com.yoflying.drivingschool.bean.Person;
-import com.yoflying.drivingschool.bean.Person1;
 import com.yoflying.drivingschool.bean.User;
-import com.yoflying.drivingschool.login.IUserLoginView;
+import com.yoflying.drivingschool.config.Config;
+import com.yoflying.drivingschool.modules.login.IUserLoginView;
+import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 import okhttp3.RequestBody;
 import rx.Subscriber;
@@ -17,7 +19,7 @@ import rx.Subscriber;
  * Created by yaojiulong on 2016/12/21.
  */
 
-public class UserLoginPresenter extends BasePresenter{
+public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
 
     private IUserLoginView mUserLoginView;
 
@@ -38,7 +40,7 @@ public class UserLoginPresenter extends BasePresenter{
             return;
         }
         mUserLoginView.showDialog();
-        Subscriber<HttpsResult<Person1>> subscriber=new Subscriber<HttpsResult<Person1>>() {
+        Subscriber<HttpsResult<Person>> subscriber=new Subscriber<HttpsResult<Person>>() {
             @Override
             public void onCompleted() {
 
@@ -51,11 +53,12 @@ public class UserLoginPresenter extends BasePresenter{
             }
 
             @Override
-            public void onNext(HttpsResult<Person1> person) {
+            public void onNext(HttpsResult<Person> person) {
                 Log.e("dandy"," "+person.toString());
                 mUserLoginView.cancelDialog();
                 if (person.getStatus()==0){
                     mUserLoginView.toMainActivity();
+                    savaUserToken(person);
                 }else {
                     mUserLoginView.toastMeassager(person.getMessage());
                 }
@@ -71,6 +74,11 @@ public class UserLoginPresenter extends BasePresenter{
         RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),route);
         addSubscription(mApiStore.login(body),subscriber);
 
+    }
+
+    private void savaUserToken(HttpsResult<Person> person){
+        UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN,person.getMessage());
+        UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_USERNAME,person.getData().getUsername());
     }
 
     /**

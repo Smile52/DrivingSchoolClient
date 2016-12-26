@@ -1,4 +1,4 @@
-package com.yoflying.drivingschool.login;
+package com.yoflying.drivingschool.modules.login;
 
 import com.yoflying.drivingschool.base.BaseView;
 

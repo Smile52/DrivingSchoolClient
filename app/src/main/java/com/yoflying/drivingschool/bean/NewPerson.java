@@ -32,7 +32,7 @@ public class NewPerson {
     //可选
     private String address;
     //可选
-    private int course;
+    private int course;//课程
     private int status;
 
     private NewPerson(Builder builder){

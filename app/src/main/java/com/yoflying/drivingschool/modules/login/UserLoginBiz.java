@@ -1,9 +1,4 @@
-package com.yoflying.drivingschool.login;
-
-import android.util.Log;
-import android.widget.EditText;
-
-import com.yoflying.drivingschool.bean.User;
+package com.yoflying.drivingschool.modules.login;
 
 /**
  * Created by yaojiulong on 2016/12/21.

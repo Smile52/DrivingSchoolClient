@@ -1,4 +1,6 @@
-package com.yoflying.drivingschool.login;
+package com.yoflying.drivingschool.modules.login;
+
+import com.yoflying.drivingschool.modules.login.OnLoginListener;
 
 /**
  * Created by yaojiulong on 2016/12/21.

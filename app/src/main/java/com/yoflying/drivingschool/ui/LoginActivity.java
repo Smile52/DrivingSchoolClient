@@ -3,9 +3,7 @@ package com.yoflying.drivingschool.ui;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -20,8 +18,8 @@ import android.widget.Toast;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
-import com.yoflying.drivingschool.login.IUserLoginView;
-import com.yoflying.drivingschool.presenter.UserLoginPresenter;
+import com.yoflying.drivingschool.modules.login.IUserLoginView;
+import com.yoflying.drivingschool.modules.login.UserLoginPresenter;
 
 
 /**
@@ -89,11 +87,6 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
         });
 
         mAdmin.setChecked(true);
-    }
-
-    @Override
-    protected Context getActivityContext() {
-        return getApplicationContext();
     }
 
 
