@@ -45,6 +45,8 @@ public class NewPerson {
         this.wechat=builder.wechat;
         this.address=builder.address;
         this.status=builder.status;
+        this.course=builder.course;
+        this.name=builder.name;
     }
 
     public static class Builder{
@@ -94,6 +96,7 @@ public class NewPerson {
             this.course=course;
             return this;
         }
+
 
         public NewPerson build(){
             return new NewPerson(this);

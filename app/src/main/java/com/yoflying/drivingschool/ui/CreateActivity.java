@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,6 +17,7 @@ import android.widget.Spinner;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
+import com.yoflying.drivingschool.modules.create.CreatePresenter;
 import com.yoflying.drivingschool.modules.create.ICreateView;
 
 /**
@@ -31,6 +33,8 @@ public class CreateActivity extends BaseActivity implements ICreateView {
     private int mCourse=1;
     private Spinner mCourseView;
     private String[] mCourses;
+    private CreatePresenter mPresenter;
+    private Button mSubmit;
 
     @Override
     protected void initView() {
@@ -47,7 +51,9 @@ public class CreateActivity extends BaseActivity implements ICreateView {
         mPhone=findView(R.id.create_phone);
         mWechat=findView(R.id.create_wechat);
         mCourseView=findView(R.id.create_course);
+        mSubmit=findView(R.id.create_submit);
         addToolbar();
+        mPresenter=new CreatePresenter(this);
     }
 
     @Override
@@ -94,13 +100,19 @@ public class CreateActivity extends BaseActivity implements ICreateView {
         mCourseView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("dandy","选中了 "+mCourses[position]);
+                //Log.e("dandy","选中了 "+mCourses[position]);
                 mCourse=position+1;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+        mSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.getInfo();
             }
         });
 

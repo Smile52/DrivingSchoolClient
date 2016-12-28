@@ -5,4 +5,6 @@ package com.yoflying.drivingschool.modules.admin;
  */
 
 public interface IAdminView {
+    void showUserName(String name);
+    void showUserType(String type);
 }

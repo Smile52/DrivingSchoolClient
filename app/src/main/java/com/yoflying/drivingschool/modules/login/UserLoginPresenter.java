@@ -10,6 +10,7 @@ import com.yoflying.drivingschool.bean.Person;
 import com.yoflying.drivingschool.bean.User;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.modules.login.IUserLoginView;
+import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 import okhttp3.RequestBody;
@@ -40,7 +41,7 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
             return;
         }
         mUserLoginView.showDialog();
-        Subscriber<HttpsResult<Person>> subscriber=new Subscriber<HttpsResult<Person>>() {
+      /*  Subscriber<HttpsResult<Person>> subscriber=new Subscriber<HttpsResult<Person>>() {
             @Override
             public void onCompleted() {
 
@@ -64,6 +65,30 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
                 }
 
             }
+        };*/
+        ApiCallBack<HttpsResult<Person>> subscriber1=new ApiCallBack<HttpsResult<Person>>() {
+            @Override
+            public void onSuccess(HttpsResult<Person> model) {
+                Log.e("dandy"," "+model.toString());
+                mUserLoginView.cancelDialog();
+                if (model.getStatus()==0){
+                    mUserLoginView.toMainActivity();
+                    savaUserToken(model);
+                }else {
+                    mUserLoginView.toastMeassager(model.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                //Log.e("dandy","error "+msg);
+                mUserLoginView.cancelDialog();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
         };
         User user=new User();
         user.setCategory(type);
@@ -72,13 +97,18 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
         Gson gson=new Gson();
         String route= gson.toJson(user);
         RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),route);
-        addSubscription(mApiStore.login(body),subscriber);
+        addSubscription(mApiStore.login(body),subscriber1);
 
     }
 
     private void savaUserToken(HttpsResult<Person> person){
         UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN,person.getMessage());
         UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_USERNAME,person.getData().getUsername());
+        if (person.getData().getDiscern()==1){
+            UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_USER_TYPE,"教练");
+        }else {
+            UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_USER_TYPE,"学员");
+        }
     }
 
     /**

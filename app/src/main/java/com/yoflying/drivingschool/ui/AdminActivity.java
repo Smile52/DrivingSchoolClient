@@ -1,38 +1,40 @@
 package com.yoflying.drivingschool.ui;
 
-import android.content.Context;
-
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
-import android.widget.Toolbar;
+import android.widget.TextView;
 
+import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
+import com.yoflying.drivingschool.modules.admin.AdminPresenter;
+import com.yoflying.drivingschool.modules.admin.IAdminView;
+import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 /**
  * 管理员主界面
  */
-public class AdminActivity extends BaseActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class AdminActivity extends BaseActivity  implements NavigationView.OnNavigationItemSelectedListener,IAdminView {
     private android.support.v7.widget.Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private ActionBarDrawerToggle mDrawerToggle;
-
-
+    private TextView mUserTypetv,mUserNametv;
+    private AdminPresenter mPresenter;
 
     public void initView() {
         setContentView(R.layout.activity_admin);
         mToolbar=findView(R.id.admin_layout_toolbar);
         mDrawerLayout=findView(R.id.content_layout);
         mNavigationView=findView(R.id.nav_view);
+        mUserTypetv=findView(R.id.nav_header_type_tv);
         mToolbar.setTitle("Driver");
         mToolbar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolbar);
@@ -43,6 +45,9 @@ public class AdminActivity extends BaseActivity  implements NavigationView.OnNav
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mNavigationView.setNavigationItemSelectedListener(this);
+        mPresenter=new AdminPresenter(this);
+
+
     }
 
     @Override
@@ -94,8 +99,22 @@ public class AdminActivity extends BaseActivity  implements NavigationView.OnNav
             case R.id.nav_seeting:
                 break;
             case R.id.nav_exit_user:
+                //清除当前用户的token，并跳转到登录页面
+                UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_TOKEN,"");
+                Intent toLogin=new Intent(AdminActivity.this,LoginActivity.class);
+                startActivity(toLogin);
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void showUserName(String name) {
+        mUserNametv.setText(name);
+    }
+
+    @Override
+    public void showUserType(String type) {
+        mUserTypetv.setText(type);
     }
 }

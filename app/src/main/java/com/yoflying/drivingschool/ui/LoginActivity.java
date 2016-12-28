@@ -82,7 +82,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
             @Override
             public void onClick(View view) {
                 mUserLoginPresenter.login();
-                Log.e("dandy","点击了");
+
             }
         });
 
