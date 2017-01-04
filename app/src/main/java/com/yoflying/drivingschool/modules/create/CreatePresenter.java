@@ -56,11 +56,16 @@ public class CreatePresenter extends BasePresenter<ICreateView>{
             @Override
             public void onSuccess(HttpsResult model) {
                 Log.e("dandy","注册成功 "+model.toString());
+                if (model.getStatus()==0){
+                    mCreateView.toastMeassage("注册成功");
+                }
+                mCreateView.toastMeassage("注册失败");
             }
 
             @Override
             public void onFailure(String msg) {
                 Log.e("dandy","注册用户失败 "+msg);
+                mCreateView.toastMeassage("注册失败");
             }
 
             @Override

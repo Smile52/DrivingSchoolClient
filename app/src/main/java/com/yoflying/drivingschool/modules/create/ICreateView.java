@@ -14,4 +14,6 @@ public interface ICreateView {
     String getWechat();
     int getCourse();
 
+    void toastMeassage(String msg);
+
 }

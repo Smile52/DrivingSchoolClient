@@ -5,5 +5,10 @@ package com.yoflying.drivingschool.home;
  */
 
 public interface IHomeView {
+    void showUserName(String name);
+    void showUserType(String type);
 
+    void showAdminFragment();
+    void showTeacherFragment();
+    void showStudentFragment();
 }

@@ -1,8 +1,6 @@
 package com.yoflying.drivingschool.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BaseActivity;
@@ -49,7 +47,7 @@ public class WecomActivity extends BaseActivity implements IWecomeView{
 
     @Override
     public void toAdminActivity() {
-        Intent intent=new Intent(WecomActivity.this,AdminActivity.class);
+        Intent intent=new Intent(WecomActivity.this,HomeActivity.class);
         startActivity(intent);
         finish();
     }

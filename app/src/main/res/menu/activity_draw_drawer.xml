@@ -3,21 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_creat_teacher"
+            android:id="@+id/nav_shcool_info"
 
-            android:title="创建教练" />
+            android:title="驾校信息" />
         <item
-            android:id="@+id/nav_creat_student"
+            android:id="@+id/nav_contact"
 
-            android:title="创建学员" />
+            android:title="联系我们" />
         <item
-            android:id="@+id/nav_binding"
+            android:id="@+id/nav_share"
 
-            android:title="学员绑定教练" />
+            android:title="分享" />
         <item
-            android:id="@+id/nav_add_vacate"
+            android:id="@+id/nav_aboult"
 
-            android:title="添加教练请假" />
+            android:title="关于" />
     </group>
 
     <item android:title="更多">
@@ -26,6 +26,7 @@
                 android:id="@+id/nav_seeting"
 
                 android:title="设置" />
+
             <item
                 android:id="@+id/nav_exit_user"
 

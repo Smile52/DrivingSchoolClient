@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -35,9 +37,11 @@ public class CreateActivity extends BaseActivity implements ICreateView {
     private String[] mCourses;
     private CreatePresenter mPresenter;
     private Button mSubmit;
+    private LinearLayout mContentLayout;
 
     @Override
     protected void initView() {
+        mContentLayout=findView(R.id.create_layout);
         setContentView(R.layout.activity_create);
         mTypeGroup=findView(R.id.create_type_group);
         mSexGroup=findView(R.id.create_sex_group);
@@ -172,5 +176,16 @@ public class CreateActivity extends BaseActivity implements ICreateView {
     @Override
     public int getCourse() {
         return mCourse;
+    }
+
+    @Override
+    public void toastMeassage(String msg) {
+        Snackbar.make(mContentLayout, msg, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+        mUserName.setText("");
+        mPassword.setText("");
+        mPhone.setText("");
+        mWechat.setText("");
+        mIdNum.setText("");
     }
 }

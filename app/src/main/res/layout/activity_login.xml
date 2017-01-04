@@ -62,17 +62,17 @@
                     android:id="@+id/login_admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_btn_admin"/>
+                    android:text="@string/user_admin"/>
                 <RadioButton
                     android:id="@+id/login_teacher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_btn_teacher"/>
+                    android:text="@string/user_teacher"/>
                 <RadioButton
                     android:id="@+id/login_student"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_btn_student"/>
+                    android:text="@string/user_student"/>
             </RadioGroup>
 
             <Button

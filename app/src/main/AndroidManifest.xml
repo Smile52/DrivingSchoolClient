@@ -25,14 +25,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AdminActivity" />
+        <activity android:name=".ui.HomeActivity" />
         <activity
             android:name=".ui.CreateActivity"
             android:label="注册"
-            android:parentActivityName=".ui.AdminActivity">
+            android:parentActivityName=".ui.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.AdminActivity" />
+                android:value=".ui.HomeActivity" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

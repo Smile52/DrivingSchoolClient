@@ -1,10 +1,8 @@
 package com.yoflying.drivingschool.ui;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 
@@ -137,7 +135,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
 
     @Override
     public void toMainActivity() {
-        startActivity(new Intent(LoginActivity.this, AdminActivity.class));
+        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
         finish();
     }
 
