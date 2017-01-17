@@ -1,5 +1,7 @@
 package com.yoflying.drivingschool.retrofit;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -26,7 +28,8 @@ public class RetrofitClient {
     public static Retrofit mRetrofit;
     private static final int DEFAULT_TIMEOUT = 5;
 
-    public static Retrofit retrofit() {
+
+    public static Retrofit retrofit(final String token) {
         if (mRetrofit == null) {
             OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
             if (BuildConfig.DEBUG) {
@@ -46,11 +49,13 @@ public class RetrofitClient {
 
                     Request request = original.newBuilder()
                             .header("Content-Type", "application/json")
+                            .header("accesstoken",token)
                             .method(original.method(), original.body())
                             .build();
                     return chain.proceed(request);
                 }
             });
+
 
             httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
             Gson gson = new GsonBuilder()
@@ -70,5 +75,8 @@ public class RetrofitClient {
         return mRetrofit;
     }
 
+    public static void close(){
+        mRetrofit=null;
+    }
 
 }

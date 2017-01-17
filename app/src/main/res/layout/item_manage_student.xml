@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="45dp">
+    <TextView
+        android:id="@+id/item_student_name_tv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="张三"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/item_student_course_tv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="科目一"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:id="@+id/item_student_bind_btn"
+        android:layout_width="80dp"
+        android:background="@color/item_bind_ok_color"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="2dp"
+        android:text="已绑定"
+        android:textColor="@color/white"
+        />
+</LinearLayout>

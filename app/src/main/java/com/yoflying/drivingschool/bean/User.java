@@ -16,6 +16,7 @@ public class User {
     private int category;
     private String username;
     private String password;
+//    private String hostName;
 
     public int getCategory() {
         return category;

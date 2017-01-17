@@ -38,15 +38,22 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initView();
+        findViewId();
         initData();
+        setLinstener();
     }
 
     protected void initData() {
 
     }
+    protected void findViewId(){
 
+    }
+
+    protected void setLinstener(){
+
+    }
 
     protected abstract void initView();
 
@@ -92,14 +99,29 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
 
 
     /**
-     *
+     *添加toolbar
      */
     public void addToolbar(){
-         mToolbar = findView(R.id.toolbar);
+        mToolbar = findView(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
+    /**
+     * 设置toolbar标题
+     * @param title
+     */
+    public void setToolbarTitle(String title){
+        if (mToolbar!=null){
+            mToolbar.setTitle(title);
+        }
+    }
 
 
 

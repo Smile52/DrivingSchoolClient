@@ -40,7 +40,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginActivity"   android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".admin.ui.SearchActivity"
+            android:label="搜索"
+            android:launchMode="singleTask" />
+        <activity android:name=".admin.ui.PersonManageActivity"></activity>
     </application>
 
 </manifest>

@@ -18,9 +18,7 @@ public class UserLoginBiz implements IUserBiz {
                 }catch (Exception e){
 
                 }
-             /*   User user = new User();
-                user.setUserName(userNum);
-                loginListener.loginSuccess(user);*/
+
             }
         }.start();
     }

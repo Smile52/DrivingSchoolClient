@@ -39,7 +39,7 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
         String userName=mUserLoginView.getUseName();
         String pwd=mUserLoginView.getPassword();
         type=mUserLoginView.getUserType();
-        Log.e("dandy","type  "+type);
+
         if (userName==null||userName.equals("")||pwd==null||pwd.equals("")){
             mUserLoginView.userOrPwdIsNull();
             return;
@@ -48,9 +48,10 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
         ApiCallBack<HttpsResult<Person>> subscriber1=new ApiCallBack<HttpsResult<Person>>() {
             @Override
             public void onSuccess(HttpsResult<Person> model) {
-                Log.e("dandy"," "+model.toString());
+
                 mUserLoginView.cancelDialog();
                 if (model.getStatus()==0){
+                    closeRetrofit();
                     mUserLoginView.toMainActivity();
                     savaUserToken(model);
                 }else {
@@ -81,7 +82,7 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
     }
 
     private void savaUserToken(HttpsResult<Person> person){
-        Log.e("dandy","person "+person);
+
         UtilSharedPreferences.saveStringData(mContext, Config.KEY_TOKEN,person.getMessage());
         UtilSharedPreferences.saveStringData(mContext,Config.KEY_USERNAME,person.getData().getUsername());
         if (person.getData().getDiscern()==1){

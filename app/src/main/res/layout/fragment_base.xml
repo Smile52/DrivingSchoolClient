@@ -3,8 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab_admin"
+        android:id="@+id/tab_base"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:tabIndicatorColor="@color/colorPrimary"
@@ -14,7 +15,7 @@
 
     </android.support.design.widget.TabLayout>
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_sadmin"
+        android:id="@+id/viewpager_base"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

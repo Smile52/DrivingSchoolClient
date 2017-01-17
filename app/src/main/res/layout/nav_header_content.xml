@@ -22,12 +22,12 @@
         android:id="@+id/nav_header_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+         />
     <TextView
         android:id="@+id/nav_header_type_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="管理员"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </LinearLayout>

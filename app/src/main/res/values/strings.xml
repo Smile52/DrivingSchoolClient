@@ -23,4 +23,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
+    <string name="admin_teacher_manage">教练管理</string>
+    <string name="admin_student_manage">学员管理</string>
+    <string name="admin_teacher_leave">请假管理</string>
+    <string name="admin_order_config">预约配置</string>
+
+    <string name="item_manage_student_bind_ok">已绑定</string>
+    <string name="item_manage_teacher_bind_no">未绑定</string>
 </resources>

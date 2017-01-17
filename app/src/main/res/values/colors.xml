@@ -4,4 +4,18 @@
     <color name="colorPrimaryDark">@android:color/holo_blue_bright</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
+
+    <color name="content_bg_color">#dfdfdf</color>
+
+    <color name="item_schedule_btn_normal_color">#53ccf2</color>
+
+    <color name="search_hint_color">#e5e2e1e1</color>
+
+    <color name="refresh_color_1">#12bdf5</color>
+    <color name="refresh_color_2">#0ef1d2</color>
+    <color name="refresh_color_3">#d5f137</color>
+    <color name="refresh_color_4">#f7a10d</color>
+
+    <color name="item_bind_ok_color">@android:color/holo_blue_bright</color>
+    <color name="item_bing_no_color">#e73d0e</color>
 </resources>

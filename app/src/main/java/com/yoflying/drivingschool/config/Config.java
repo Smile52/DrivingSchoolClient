@@ -8,7 +8,8 @@ public class Config {
     public static final int USER_TYPE_ADMIN=1;
     public static final int USER_TYPE_TEACHER=1;
     public static final int USER_TYPE_STUDENT=2;
-
+    public static final int TYPE_LEAVE=5;
+    public static final int TYPE_CONFIG=6;
 
     public static final String CREATE_USER_TYPE="create_user_type";
 
@@ -23,4 +24,9 @@ public class Config {
     public static final int COURSE_TWO=2;
     public static final int COURSE_THREE=3;
     public static final int COURSE_FOUR=4;
+
+    public static final String TYPE_TEACHER="1";
+    public static final String TYPE_STUDENt="2";
+
+    public static final String PARAMS_PAGE_NUM="pageNum";
 }

@@ -1,5 +1,7 @@
 package com.yoflying.drivingschool.bean;
 
+import java.util.List;
+
 /**
  * Created by yaojiulong on 2016/12/23.
  */
@@ -10,6 +12,7 @@ public class HttpsResult<T> {
     private int pageNum;
     private int total;
     private T data;
+
 
     public int getStatus() {
         return status;
@@ -47,9 +50,6 @@ public class HttpsResult<T> {
         return data;
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
 
     @Override
     public String toString() {
